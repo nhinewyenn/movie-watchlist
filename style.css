@@ -2,6 +2,11 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
 
+:root {
+  --greyDark: #333;
+  --mainWhite: #fff;
+}
+
 /********** GENERAL **********/
 * {
   font-family: "Montserrat", sans-serif;
@@ -12,29 +17,34 @@
 
 body {
   background: #121212;
-  color: #fff;
+  color: var(--mainWhite);
 }
 
 #landing {
   background-image: url(/oscars_90_poster_large.jpg),
     linear-gradient(rgba(0, 0, 0, 0.575), rgba(0, 0, 0, 0.569));
   background-blend-mode: color;
-  height: 45vh;
+  height: 40vh;
 }
 
 .container {
-  padding: 3.5rem 0;
+  padding: 3rem 0;
 }
 
 .row {
   width: 100%;
-  max-width: 75rem;
+  max-width: 80rem;
   margin: 0 auto;
 }
 
 a {
   text-decoration: none;
-  color: #fff;
+  color: var(--mainWhite);
+}
+
+a:hover {
+  cursor: pointer;
+  text-decoration: underline;
 }
 
 /*********** HEADER ***********/
@@ -60,10 +70,13 @@ header {
 
 #search {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
+  margin: 0 auto;
+  position: absolute;
+  top: 300px;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 550px;
+  width: 650px;
 }
 
 #search i {
@@ -74,35 +87,32 @@ header {
   padding: 1rem;
   background-color: rgba(204, 204, 204, 0.906);
   border: none;
-  border-radius: 5px;
-  width: 70%;
-  margin: 0;
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+  width: 75%;
   color: #000;
 }
 
 .icon {
   margin-right: 0.5rem;
-  color: #333;
+  color: var(--greyDark);
 }
 
 .search-btn {
-  padding: 0.75rem;
+  padding: 1rem;
   background-color: rgb(190, 189, 189);
-  border: none;
-  border-radius: 5px;
+  border: 1px solid var(--greyDark);
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
   font-size: 1rem;
   margin: 0;
   font-weight: 600;
   cursor: pointer;
-  color: #333;
+  color: var(--greyDark);
 }
 
 .search-btn:hover {
   background-color: aliceblue;
-}
-
-.search-btn:active {
-  transform: translateY(-2%);
 }
 
 /********* MODAL *********/
@@ -125,12 +135,12 @@ header {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: whitesmoke;
+  background-color: var(--mainWhite);
   padding: 1.5rem;
   width: 50%;
   height: 50%;
   border-radius: 0.5rem;
-  color: #333;
+  color: var(--greyDark);
 }
 
 .close-button {
@@ -166,7 +176,7 @@ header {
 
 /********* CONTENT *********/
 .explore-movie {
-  margin-top: 4rem;
+  margin-top: 2.5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -179,6 +189,7 @@ header {
   font-size: 1.75rem;
   color: #5a5a5a;
 }
+
 /********* MEDIA QUERY *********/
 /* Large screen and tablets */
 @media (max-width: 70rem) {
@@ -210,10 +221,6 @@ header {
     font-size: 2rem;
   }
 
-  label {
-    font-size: 2rem;
-  }
-
   h2 {
     font-size: 1rem;
   }
@@ -229,10 +236,6 @@ header {
 
 @media (max-width: 29.07rem) {
   #app-title {
-    font-size: 1.5rem;
-  }
-
-  label {
     font-size: 1.5rem;
   }
 

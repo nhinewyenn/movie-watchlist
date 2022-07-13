@@ -4,23 +4,25 @@ const API_KEY = "f13b96aa";
 const BASE_URL = `http://www.omdbapi.com/?apikey=${API_KEY}&`;
 const searchBtn = document.querySelector(".search-btn");
 const searchInput = document.getElementById("search-input");
-const exploreMovie = document.querySelector(".explore-movie");
+const movieInfo = document.getElementById("movie-info");
 
-searchBtn.addEventListener("click", (e) => {
-  e.preventDefault();
-});
+function getMovieResult() {
+  const target = searchInput.value;
 
-searchInput.addEventListener("keyup", (e) => {
-  const target = e.target.value;
-  console.log(target);
-});
+  if (target) {
+    fetch(`${BASE_URL}s=${target}`)
+      .then((res) => res.json())
+      .then((data) => {
+        const { Search: movies } = data;
 
-// // Search input
-// infoSearch.addEventListener('keyup', async e => {
-//   let res;
-//   const target = e.target.value;
-//   if (target) res = await fetch(`${url}/?name=${target}`);
-//   else res = await fetch(url);
-//   const data = await res.json();
-//   showCharacter(data.results);
-// });
+        // Get individual movie info
+        for (const movie of movies) {
+          fetch(`${BASE_URL}i=${movie.imdbID}`)
+            .then((res) => res.json())
+            .then((data) => console.log(data));
+        }
+      });
+  }
+}
+
+searchBtn.addEventListener("click", getMovieResult);
