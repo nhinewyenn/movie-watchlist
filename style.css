@@ -1,0 +1,254 @@
+/** @format */
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+
+/********** GENERAL **********/
+* {
+  font-family: "Montserrat", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #121212;
+  color: #fff;
+}
+
+#landing {
+  background-image: url(/oscars_90_poster_large.jpg),
+    linear-gradient(rgba(0, 0, 0, 0.575), rgba(0, 0, 0, 0.569));
+  background-blend-mode: color;
+  height: 45vh;
+}
+
+.container {
+  padding: 3.5rem 0;
+}
+
+.row {
+  width: 100%;
+  max-width: 75rem;
+  margin: 0 auto;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+/*********** HEADER ***********/
+header {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding-top: 5rem;
+  height: 100%;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 3rem;
+}
+
+#app-title {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+}
+
+#search {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+#search i {
+  margin-right: 0.5rem;
+}
+
+#search-input {
+  padding: 1rem;
+  background-color: rgba(204, 204, 204, 0.906);
+  border: none;
+  border-radius: 5px;
+  width: 70%;
+  margin: 0;
+  color: #000;
+}
+
+.icon {
+  margin-right: 0.5rem;
+  color: #333;
+}
+
+.search-btn {
+  padding: 0.75rem;
+  background-color: rgb(190, 189, 189);
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  margin: 0;
+  font-weight: 600;
+  cursor: pointer;
+  color: #333;
+}
+
+.search-btn:hover {
+  background-color: aliceblue;
+}
+
+.search-btn:active {
+  transform: translateY(-2%);
+}
+
+/********* MODAL *********/
+.modal {
+  position: fixed;
+  left: 0%;
+  top: 0%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(1.1);
+  transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+}
+
+.modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: whitesmoke;
+  padding: 1.5rem;
+  width: 50%;
+  height: 50%;
+  border-radius: 0.5rem;
+  color: #333;
+}
+
+.close-button {
+  float: right;
+  width: 1.5rem;
+  line-height: 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 0.25rem;
+  background-color: #0ea4e9;
+  font-weight: 700;
+}
+
+.close-button:hover {
+  background-color: #12719e;
+}
+
+.show-modal {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+  transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}
+
+.modal-title {
+  margin-bottom: 1rem;
+}
+
+.modal-desc {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/********* CONTENT *********/
+.explore-movie {
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.explore-movie h3,
+.explore-movie i {
+  font-size: 1.75rem;
+  color: #5a5a5a;
+}
+/********* MEDIA QUERY *********/
+/* Large screen and tablets */
+@media (max-width: 70rem) {
+}
+
+@media (max-width: 67.25rem) {
+}
+
+/* Medium and small screen */
+@media (max-width: 57.37rem) {
+  #app-title {
+    font-size: 2.65rem;
+  }
+
+  .modal-content {
+    width: 75%;
+    height: 50%;
+  }
+}
+
+@media (max-width: 37.813rem) {
+  #app-title {
+    font-size: 2.25rem;
+  }
+}
+
+@media (max-width: 33.125rem) {
+  #app-title {
+    font-size: 2rem;
+  }
+
+  label {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1rem;
+  }
+
+  .modal-title {
+    font-size: 1.3rem;
+  }
+
+  .modal-desc {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 29.07rem) {
+  #app-title {
+    font-size: 1.5rem;
+  }
+
+  label {
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    font-size: 0.75rem;
+  }
+
+  .modal-title {
+    font-size: 1.25rem;
+  }
+
+  .modal-desc {
+    font-size: 0.8rem;
+  }
+
+  .modal-content {
+    height: 40%;
+  }
+}
