@@ -14,7 +14,7 @@
     ></script>
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" type="image" href="/icon1.png" />
-    <script defer src="/index.js"></script>
+    <script defer src="/script.js"></script>
   </head>
 
   <body>
@@ -22,7 +22,7 @@
       <!-- HEADER -->
       <header>
         <div class="header-content">
-          <h1 id="app-title">Find Your Film</h1>
+          <h1 id="app-title"><a href="#">Find Your Film</a></h1>
           <h2 id="watch-list"><a href="/watchlist.html">My Watch List</a></h2>
         </div>
 
@@ -32,7 +32,8 @@
             id="search-input"
             placeholder="Search for your favourite movie"
           />
-          <button class="search-btn">
+
+          <button class="search-btn" type="submit">
             <i class="fa-solid fa-magnifying-glass"></i>Search
           </button>
         </div>
@@ -57,14 +58,14 @@
     <section class="explore-movie row container">
       <i class="icon fa-solid fa-film"></i>
       <h3>Start Exploring</h3>
-      <div id="movie-info1">
-        <!-- 
-          img
-          title, year
-
-                  
-         -->
-      </div>
     </section>
+    <div class="btn-container hide">
+      <button class="page-btn prev">
+        <i class="fa-solid fa-arrow-left-long"></i> Previous page
+      </button>
+      <button class="page-btn next">
+        Next page <i class="fa-solid fa-arrow-right-long"></i>
+      </button>
+    </div>
   </body>
 </html>

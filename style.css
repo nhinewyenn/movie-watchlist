@@ -33,7 +33,7 @@ body {
 
 .row {
   width: 100%;
-  max-width: 80rem;
+  max-width: 68rem;
   margin: 0 auto;
 }
 
@@ -68,6 +68,10 @@ header {
   margin-bottom: 1rem;
 }
 
+#app-title a {
+  text-decoration: none;
+}
+
 #search {
   display: flex;
   margin: 0 auto;
@@ -86,7 +90,7 @@ header {
 #search-input {
   padding: 1rem;
   background-color: rgba(204, 204, 204, 0.906);
-  border: none;
+  border: 0.5px solid #333;
   border-bottom-left-radius: 5px;
   border-top-left-radius: 5px;
   width: 75%;
@@ -101,7 +105,7 @@ header {
 .search-btn {
   padding: 1rem;
   background-color: rgb(190, 189, 189);
-  border: 1px solid var(--greyDark);
+  border: 0.5px solid var(--greyDark);
   border-bottom-right-radius: 5px;
   border-top-right-radius: 5px;
   font-size: 1rem;
@@ -113,6 +117,116 @@ header {
 
 .search-btn:hover {
   background-color: aliceblue;
+}
+
+/********* CONTENT *********/
+.explore-movie {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin: 2.5rem auto;
+}
+
+.explore-movie h3,
+.explore-movie i {
+  font-size: 1.75rem;
+  color: #5a5a5a;
+}
+
+#cards {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem;
+  width: 100%;
+}
+
+#cards img {
+  width: 12rem;
+}
+
+.movie-container {
+  margin-left: 3rem;
+  width: 100%;
+}
+
+.movie-info,
+.movie-sub-info {
+  display: flex;
+  margin-bottom: 1.25rem;
+  align-items: center;
+  gap: 3.5rem;
+}
+
+.movie-plot {
+  width: 70%;
+  line-height: 1.5;
+}
+
+.movie-watchlist {
+  padding: 0.5rem;
+  background-color: var(--greyDark);
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  color: var(--mainWhite);
+}
+
+.movie-watchlist:hover {
+  background-color: #5a5a5a;
+}
+
+.movie-watchlist i {
+  font-size: 0.9rem;
+  color: var(--mainWhite);
+}
+
+.watch-list {
+  margin-left: 0.4rem;
+}
+
+.line {
+  border: 0.9px solid #6d6d6d;
+  width: 100%;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6rem;
+  margin-bottom: 3rem;
+}
+
+.page-btn {
+  border: none;
+  background-color: transparent;
+  color: var(--mainWhite);
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.prev i {
+  margin-right: 0.25rem;
+}
+
+.prev:hover i {
+  margin-right: 0.75rem;
+}
+
+.next i {
+  margin-left: 0.25rem;
+}
+
+.next:hover i {
+  margin-left: 0.75rem;
+}
+
+.hide {
+  visibility: hidden;
 }
 
 /********* MODAL *********/
@@ -172,22 +286,6 @@ header {
 .modal-desc {
   font-size: 1rem;
   line-height: 1.5;
-}
-
-/********* CONTENT *********/
-.explore-movie {
-  margin-top: 2.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-}
-
-.explore-movie h3,
-.explore-movie i {
-  font-size: 1.75rem;
-  color: #5a5a5a;
 }
 
 /********* MEDIA QUERY *********/
