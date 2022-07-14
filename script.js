@@ -10,10 +10,15 @@ const exploreMovie = document.querySelector(".explore-movie");
 const btnContainer = document.querySelector(".btn-container");
 const nextBtn = document.querySelector(".next");
 const prevBtn = document.querySelector(".prev");
+const localStorageKey = Object.keys(localStorage);
+console.log(localStorageKey);
 
 function displayMovieResult(data) {
   const noImage = "./no-image.svg.webp";
   let dataImage = data.Poster;
+  const watchList = data.imdbID;
+  console.log(watchList);
+
   exploreMovie.innerHTML += `
   <div id="cards">
       <img src="${dataImage === "N/A" ? noImage : dataImage}"/>
@@ -45,6 +50,7 @@ function getMovieResult() {
       .then((res) => res.json())
       .then((data) => {
         const { Search: movie } = data;
+        console.log(movie);
         getIndividualMovie(movie);
         prevBtn.classList.add("hide");
       });
@@ -76,17 +82,16 @@ function getPrevPage() {
 }
 
 function getNextPage() {
-  if (searchInput.value) {
-    fetch(`${BASE_URL}s=${searchInput.value}&page=${(counter += 1)}`)
-      .then((res) => res.json())
-      .then((data) => {
-        const { Search: movie } = data;
-        getIndividualMovie(movie);
-        if (counter > 1) prevBtn.classList.remove("hide");
-      });
-  }
+  fetch(`${BASE_URL}s=${searchInput.value}&page=${(counter += 1)}`)
+    .then((res) => res.json())
+    .then((data) => {
+      const { Search: movie } = data;
+      getIndividualMovie(movie);
+      if (counter > 1) prevBtn.classList.remove("hide");
+    });
 }
 
+// EVENT LISTENERS
 searchBtn.addEventListener("click", getMovieResult);
 nextBtn.addEventListener("click", getNextPage);
 prevBtn.addEventListener("click", getPrevPage);
