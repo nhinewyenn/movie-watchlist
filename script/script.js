@@ -54,9 +54,9 @@ function getMovieResult() {
   }
 }
 
-function getIndividualMovie(movieData) {
-  for (const movie of movieData) {
-    fetch(`${BASE_URL}i=${movie.imdbID}`)
+function getIndividualMovie(movie) {
+  for (const movieData of movie) {
+    fetch(`${BASE_URL}i=${movieData.imdbID}`)
       .then(res => res.json())
       .then(movieListData => {
         btnContainer.classList.remove("hide");
