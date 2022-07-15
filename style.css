@@ -28,7 +28,7 @@ body {
 }
 
 .container {
-  padding: 3rem 0;
+  padding: 3rem;
 }
 
 .row {
@@ -63,6 +63,13 @@ header {
   margin: 3rem;
 }
 
+.header-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
 #app-title {
   font-size: 3.5rem;
   margin-bottom: 1rem;
@@ -79,8 +86,8 @@ header {
   top: 300px;
   left: 50%;
   transform: translateX(-50%);
-  max-width: 550px;
-  width: 650px;
+  max-width: 34rem;
+  width: 40rem;
 }
 
 #search i {
@@ -172,6 +179,7 @@ header {
   border-radius: 5px;
   border: none;
   cursor: pointer;
+  width: 7rem;
   color: var(--mainWhite);
 }
 
@@ -201,7 +209,8 @@ header {
   margin-bottom: 3rem;
 }
 
-.page-btn {
+.page-btn,
+.background-mode {
   border: none;
   background-color: transparent;
   color: var(--mainWhite);
@@ -233,6 +242,7 @@ header {
 /********* WATCHLIST *********/
 .empty-watchlist {
   margin-bottom: 1.5rem;
+  text-align: center;
 }
 
 .add-movie {
@@ -245,67 +255,118 @@ header {
 }
 
 /********* MEDIA QUERY *********/
-/* Large screen and tablets */
-@media (max-width: 70rem) {
-}
-
-@media (max-width: 67.25rem) {
-}
-
 /* Medium and small screen */
 @media (max-width: 57.37rem) {
   #app-title {
     font-size: 2.65rem;
   }
 
-  .modal-content {
-    width: 75%;
-    height: 50%;
+  .movie-rating,
+  .movie-genre,
+  .movie-runtime,
+  .movie-plot {
+    font-size: 0.8rem;
   }
 }
 
-@media (max-width: 37.813rem) {
-  #app-title {
-    font-size: 2.25rem;
+@media (max-width: 47.2rem) {
+  #cards,
+  .movie-container,
+  .movie-info {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .movie-container,
+  .movie-plot {
+    margin: auto;
+  }
+
+  .movie-info {
+    margin-top: 2rem;
+    gap: 2rem;
+  }
+
+  .movie-sub-info {
+    gap: 1.25rem;
+    justify-content: center;
+  }
+
+  .movie-plot,
+  .movie-title {
+    text-align: center;
+  }
+
+  .movie-title {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 38.74rem) {
+  .header-content {
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+
+  #search {
+    max-width: 27.5rem;
+  }
+
+  #search-input {
+    width: 70%;
   }
 }
 
 @media (max-width: 33.125rem) {
   #app-title {
-    font-size: 2rem;
+    font-size: 2.5rem;
   }
 
   h2 {
     font-size: 1rem;
   }
 
-  .modal-title {
-    font-size: 1.3rem;
-  }
-
-  .modal-desc {
-    font-size: 0.85rem;
+  .page-btn {
+    font-size: 0.8rem;
   }
 }
 
-@media (max-width: 29.07rem) {
+@media (max-width: 29.625rem) {
   #app-title {
-    font-size: 1.5rem;
+    font-size: 2rem;
+  }
+  .movie-sub-info {
+    flex-direction: column;
+    gap: 0.8rem;
   }
 
-  h2 {
-    font-size: 0.75rem;
+  .btn-container {
+    gap: 4.25rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
   }
 
-  .modal-title {
-    font-size: 1.25rem;
+  #search {
+    flex-direction: column;
+    flex-wrap: wrap;
+    top: 290px;
+    margin-bottom: 2rem;
   }
 
-  .modal-desc {
+  #search-input {
+    width: 80%;
+    border-radius: 5px;
+    margin: 0 auto;
+  }
+
+  .search-btn {
+    width: 30%;
+    padding: 0.75rem;
     font-size: 0.8rem;
-  }
-
-  .modal-content {
-    height: 40%;
+    margin: 0 auto;
+    border-top-left-radius: 0%;
+    border-top-right-radius: 0%;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
   }
 }
