@@ -10,7 +10,6 @@ const btnContainer = document.querySelector(".btn-container");
 const nextBtn = document.querySelector(".next");
 const prevBtn = document.querySelector(".prev");
 const watchlistMovies = JSON.parse(localStorage.getItem("data")) || [];
-const localStorageKey = Object.keys(localStorage);
 
 ////////////////////////////////////////////
 function renderMovie(data) {
@@ -32,8 +31,8 @@ function renderMovie(data) {
         <span class="movie-genre">${data.Genre}</span>
         <button class="watchlist-btn"
         onclick=addToWatchList("${data.imdbID}")>
-        <i class="fa-solid fa-circle-plus"></i>
-        <span class="watch-list">Watchlist</span>
+          <i class="fa-solid fa-circle-plus"></i>
+          <span class="watch-list">Watchlist</span>
         </button>
       </div>
         <p class="movie-plot">${data.Plot}</p>
@@ -48,9 +47,8 @@ function getMovieResult() {
     fetch(`${BASE_URL}s=${searchInput.value}&page=${counter}`)
       .then(res => res.json())
       .then(data => {
-        const { Search: movie } = data;
-        getIndividualMovie(movie);
         prevBtn.classList.add("hide");
+        getIndividualMovie(data.Search);
       })
       .catch(err => alert(`Something went wrong while getting your data`));
   }
@@ -75,8 +73,7 @@ function getPrevPage() {
     fetch(`${BASE_URL}s=${searchInput.value}&page=${(counter -= 1)}`)
       .then(res => res.json())
       .then(data => {
-        const { Search: movie } = data;
-        getIndividualMovie(movie);
+        getIndividualMovie(data.Search);
       })
       .catch(err => alert(`Something went wrong`));
   }
@@ -86,8 +83,7 @@ function getNextPage() {
   fetch(`${BASE_URL}s=${searchInput.value}&page=${(counter += 1)}`)
     .then(res => res.json())
     .then(data => {
-      const { Search: movie } = data;
-      getIndividualMovie(movie);
+      getIndividualMovie(data.Search);
       if (counter > 1) prevBtn.classList.remove("hide");
     })
     .catch(err => alert(`Something went wrong`));
@@ -104,8 +100,6 @@ function addToWatchList(imdbID) {
   localStorage.setItem("data", JSON.stringify(watchlistMovies));
 }
 
-console.log(localStorageKey);
-
 // EVENT LISTENERS
 searchBtn.addEventListener("click", getMovieResult);
 nextBtn.addEventListener("click", getNextPage);
@@ -114,7 +108,10 @@ prevBtn.addEventListener("click", getPrevPage);
 title.addEventListener("click", () => {
   exploreMovie.innerHTML = `
   <i class="icon fa-solid fa-film"></i>
-   <h3>Start Exploring</h3>
-  `;
+   <h3>Start Exploring</h3>`;
   btnContainer.classList.add("hide");
+});
+// Show input results when press enter
+searchInput.addEventListener("keypress", e => {
+  if (e.key === "Enter") getMovieResult();
 });
