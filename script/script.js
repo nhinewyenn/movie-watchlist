@@ -96,7 +96,6 @@ function addToWatchList(imdbID) {
   } else {
     watchlistMovies.push({ imdbID: imdbID });
   }
-
   localStorage.setItem("data", JSON.stringify(watchlistMovies));
 }
 
