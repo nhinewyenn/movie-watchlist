@@ -145,6 +145,7 @@ header {
 
 #cards img {
   width: 12rem;
+  border-radius: 5px;
 }
 
 .movie-container {
@@ -165,7 +166,7 @@ header {
   line-height: 1.5;
 }
 
-.movie-watchlist {
+.watchlist-btn {
   padding: 0.5rem;
   background-color: var(--greyDark);
   border-radius: 5px;
@@ -174,11 +175,11 @@ header {
   color: var(--mainWhite);
 }
 
-.movie-watchlist:hover {
+.watchlist-btn:hover {
   background-color: #5a5a5a;
 }
 
-.movie-watchlist i {
+.watchlist-btn i {
   font-size: 0.9rem;
   color: var(--mainWhite);
 }
