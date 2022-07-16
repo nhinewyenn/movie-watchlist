@@ -3,11 +3,9 @@
 const BASE_URL = `http://www.omdbapi.com/?apikey=f13b96aa&type=movie&`;
 let counter = 1;
 const title = document.getElementById("app-title");
-const searchBtn = document.querySelector(".search-btn");
 const searchInput = document.getElementById("search-input");
 const exploreMovie = document.querySelector(".explore-movie");
 const btnContainer = document.querySelector(".btn-container");
-const nextBtn = document.querySelector(".next");
 const prevBtn = document.querySelector(".prev");
 const watchlistMovies = JSON.parse(localStorage.getItem("data")) || [];
 
@@ -100,9 +98,6 @@ function addToWatchList(imdbID) {
 }
 
 // EVENT LISTENERS
-searchBtn.addEventListener("click", getMovieResult);
-nextBtn.addEventListener("click", getNextPage);
-prevBtn.addEventListener("click", getPrevPage);
 // Reset page when clicking on the title
 title.addEventListener("click", () => {
   exploreMovie.innerHTML = `
@@ -114,3 +109,6 @@ title.addEventListener("click", () => {
 searchInput.addEventListener("keypress", e => {
   if (e.key === "Enter") getMovieResult();
 });
+prevBtn.addEventListener("click", getPrevPage);
+document.querySelector(".search-btn").addEventListener("click", getMovieResult);
+document.querySelector(".next").addEventListener("click", getNextPage);
